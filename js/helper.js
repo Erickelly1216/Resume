@@ -113,6 +113,7 @@ function initializeMap() {
   var locations;
 
   var mapOptions = {
+    zoomControl: true,   
     disableDefaultUI: true
   };
 
