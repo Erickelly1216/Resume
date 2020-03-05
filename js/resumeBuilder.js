@@ -54,7 +54,7 @@ var bio = {
     contacts:{
         mobile : "015125865092",
         email : "jan100212@hotmail.com",
-        location : "Taizhou"
+        location : "Essen"
     },
     skills : ["java", "python", "js", "df", "df", "df", "df"]
 };
@@ -112,7 +112,7 @@ var education = {
     schools : [
         {
             name :"Uni-Augsburg",
-            location :"Changzhou",
+            location :"Augsburg",
             major : "Wirtschaftsmathematik",
             degree : "Unfinished",
             date : "2012",
