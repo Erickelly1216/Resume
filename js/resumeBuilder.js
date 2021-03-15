@@ -44,17 +44,16 @@ var work = {
 
 var bio = {
     name : "Jianlu Ma",
+    born : ["Jinan", [36.6507007, 117.1140042], "Born"],
     role: "",
     // biopic : "/Users/eric/Documents/studium/ws17:18/Udacity/JS/Javascript基础/project_Ma/images/fry.jpg",
     // 这里因为文件位于同一根目录下，所以图片地址不需要所有前缀
-    biopic :  "images/fry.jpg",
-    // "images/744e2f77.jpg",
+    biopic : "images/744e2f77.jpg",
     // 这里若无空格，那么整段文字将会被作为一个单词处理=> 无分段，占据一整行
     welcomeMessage : "blablablablablablablablablablablablab lablablablablablablablab lablablablablablablablablablab lablablablablablablablablablablablab lablablablablablablablablablab lablablablablablablablablablablab lablablablablablablablablablablabl ablablablablablablablablabl ablablablablablablab lablablablablablablablablablablab lablablablablabla",
     contacts:{
         mobile : "015125865092",
         email : "jan100212@hotmail.com",
-        location : "Essen"
     },
     skills : ["java", "python", "js", "df", "df", "df", "df"]
 };
@@ -112,7 +111,7 @@ var education = {
     schools : [
         {
             name :"Uni-Augsburg",
-            location :"Augsburg",
+            location :["Augsburg", [48.3668041, 10.8986971], "WiMath"],
             major : "Wirtschaftsmathematik",
             degree : "Unfinished",
             date : "2012",
@@ -120,7 +119,7 @@ var education = {
         },
         {
             name :"Uni-DuE",
-            location :"Essen",
+            location :["Essen", [51.4582235, 7.0158171], "WiInf"],
             major : "Wirtschaftsinformatik",
             degree : "Bachelor of Science",
             date : "2020",
@@ -153,7 +152,7 @@ education.display = function() {
         var formattedName = HTMLschoolName.replace("%data%",education.schools[school].name);
         var formattedDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
         var formattedDates = HTMLschoolDates.replace("%data%",education.schools[school].date);
-        var formattedLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
+        var formattedLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location[0]);
         var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[school].major);
         $(".education-entry:last").append(formattedName + formattedDegree,formattedDates,formattedLocation,formattedMajor);
     }
@@ -175,6 +174,8 @@ var projects = {
             dates:"04/2016 - 08/2016",
             description:"A Project Management Toolkit Developed Using Excel",
             images : ["images/BP1.jpg"]
+            //["https://github.com/Erickelly1216/Resume/blob/master/images/BP1.jpg"]
+            //["http://www.google.com/intl/en_com/images/logo_plain.png"]
             //["/Users/eric/Downloads/img&gif/funny/WhatsApp_Image_2018-01-28_at_20.22.21.jpg"]
         }
     ],
@@ -246,51 +247,6 @@ function displayWork(){
 
 displayWork();
 
-function locationizer(work_obj) {
-    var locations =[];
-    /*
-    for(job in work_obj.jobs){
-        // 注意这里不要写成 job.location，因为job是index而非数组的元素
-        locations.push(work.jobs[job].location);
-    }
-    */
-
-    work_obj.jobs.forEach(function(job){
-        locations.push(job.location);
-    });
-
-    return locations;
-}
-
-/*
-projects.display = function(){
-
-    for(project in projects.projects){
-        $("#projects").append(HTMLprojectStart);
-
-        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-        $(".project-entry:last").append(formattedTitle);
-
-        var formattedDate = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-        $(".project-entry:last").append(formattedDate);
-
-        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-        $(".project-entry:last").append(formattedDescription);
-    }
-}
-*/
-//projects.display();
-
-/*
-var img = document.createElement("img");
-img.src = "http://www.google.com/intl/en_com/images/logo_plain.png";
-img.src = "/Users/eric/Documents/studium/ws17:18/Udacity/JS/Javascript基础/images/fry.jpg";
-
-//var src = document.getElementById("main");
-//src.appendChild(img);
-// oder
-$("#main").append(img);
-*/
 
 
 // 这个函数将会在“helper。js”中被调用,用于将姓的字母全部大写
