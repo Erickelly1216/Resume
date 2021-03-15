@@ -26,12 +26,13 @@ Cameron Pittman，Udacity课程开发人员
   <link href="css/style.css" rel="stylesheet">
 
 
-  <!-- 加载高德地图，将下面的 API_KEY 换成你的 API Key -->
-  <!--<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=YOUR_API_KEY_HERE"></script>-->
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDw2dFa4gJVZNBvNIqzemTOUrnsFUN20CQ"></script>
-
-
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+
 </head>
 
 <body>
@@ -80,12 +81,12 @@ Cameron Pittman，Udacity课程开发人员
 -->
 
   <!-- More on helper.js in the class -->
-  <script src="js/helper.js"></script>
+  <script src="js/helper1.js"></script>
 
   <!--
    下一行告诉浏览器在哪里下载要编写的JavaScript文件。 在resumeBuilder.js中，当打开该网站index.html时，运行您将编写的代码来构建简历。
   -->
-  <script src="js/resumeBuilder.js"></script>
+  <script src="js/resumeBuilder1.js"></script>
 
 
   <!--
@@ -132,6 +133,34 @@ Cameron Pittman，Udacity课程开发人员
     if (document.getElementById('map') === null) {
       document.getElementById('mapDiv').style.display = 'none';
     }
+
+    /*
+    var mymap = L.map('map')//.setView([51.4582235, 7.0158171], 13);
+
+    markersList = [["Essen", [51.4582235, 7.0158171], "WiInf"],
+                   ["Jinan", [36.6507007, 117.1140042], "Born"]]
+    var markers = [];
+    for (var i = 0; i < markersList.length; i++) {
+        markers.push(new L.marker(markersList[i][1]).bindPopup("<b>"+markersList[i][0]+"</b>"+"<br />"+markersList[i][2]).openPopup());
+    }
+
+    var group = new L.featureGroup(markers).addTo(mymap);
+    mymap.fitBounds(group.getBounds());
+
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        minZoom: 1,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        maxNativeZoom: 18
+    }).addTo(mymap);
+  */
+
   </script>
 </body>
 
