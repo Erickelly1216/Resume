@@ -133,7 +133,7 @@ var projects = {
             images :
             [   
                 ["images/projects/dfd_small.jpg", "images/projects/dfd_big.jpg","Datenfluss_Diagramm"],
-                ["images/projects/createGame_small.png", "images/projects/createGame_big.png","Game_Creating(picture from the network)"]
+                ["images/projects/gameModel_small.png", "images/projects/gameModel_big.png","Game_Model"]
             ]
         },
 
