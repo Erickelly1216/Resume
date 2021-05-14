@@ -1,19 +1,6 @@
- /*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
-
-/*
-These are HTML strings. As part of the course, you'll be using JavaScript functions
-replace the %data% placeholder text you see in them.
-*/
+ 
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr>';
+var HTMLheaderRole = '<span id="role">%data%</span><hr>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">Mobile</span><span class="white-text">%data%</span></li>';
@@ -24,7 +11,7 @@ var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span
 var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
+var HTMLwelcomeMsg = '<span id="welcome_message" class="welcome-message">%data%</span>';
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
@@ -37,13 +24,16 @@ var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
+var HTMLprojectTitle = '<a>%data%</a>';//'<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectImage = '<a href="%big_image%" data-lightbox="roadtrip" data-title="%description%">      <img src="%thumb_image%"></a>';
+//'<img src="%data%">';
+// used to zoom in after image been clicked
+//'<div class="click-zoom"><label><input type="checkbox"><img src="%data%"></label></div>';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
+var HTMLschoolName = '<a href="%url%">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
@@ -55,83 +45,134 @@ var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
-var internationalizeButton = '<button>Internationalize</button>';
+var internationalizeButton = '<button class="button" id="button">%data%</button>';
 var googleMap = '<div id="map"></div>';
 
+var de_projects = "Projekts";
+var de_education = "Ausbildugen";
+var de_places = "Wo ich studiert und gelebt habe";
+var de_skills_h3 = 'Fähigkeiten auf einen Blick';
+var de_contact = 'Kontakt';
+var de_workExperience = "Berufserfahrungen";
 
-/*
-The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
+var en_projects = "Projects";
+var en_education = "Education";
+var en_places = "Places I studied and lived";
+var en_skills_h3 = 'Skills at a Glance';
+var en_contact = 'Contact';
+var en_workExperience = 'Work Experience';
+
+var c_projects = "项目举例";
+var c_education = "教育程度";
+var c_places = "我住过和学习过的地方";
+var c_skills_h3 = '技能概览';
+var c_contact = '联系方式';
+var c_workExperience = "工作经历";
+
+
 $(document).ready(function() {
   $('button').click(function() {
-    var $name = $('#name');
-    var iName = nameChanger($name.text()) || function(){};
-    $name.html(iName);
+
+    var s = $('#button');
+
+    if(s.text()=='de'){
+
+      $('#name').html(bio.name.de);
+
+      $('#welcome_message').html(bio.welcomeMessage.de);
+
+      $('#role').html(bio.role.de);
+
+      $('#skills-h3').html(de_skills_h3);
+
+      $("#t_projects").html(de_projects);
+
+      $("#t_education").html(de_education);
+
+      $("#t_places").html(de_places);
+
+      $("#t_contact").html(de_contact);
+
+      $("#t_workExperience").html(de_workExperience);
+
+    } else
+      if(s.text()=='en'){
+
+      $('#name').html(bio.name.en);
+
+      $('#welcome_message').html(bio.welcomeMessage.en);
+
+      $('#role').html(bio.role.en);
+
+      $('#skills-h3').html(en_skills_h3);
+
+      $("#t_projects").html(en_projects);
+
+      $("#t_education").html(en_education);
+
+      $("#t_places").html(en_places);
+
+      $("#t_contact").html(en_contact);
+
+      $("#t_workExperience").html(en_workExperience);
+
+    } else
+      if(s.text()=='zh'){
+
+      $('#name').html(bio.name.zh);
+
+      $('#welcome_message').html(bio.welcomeMessage.zh);
+
+      $('#role').html(bio.role.zh);
+
+      $('#skills-h3').html(c_skills_h3);
+
+      $("#t_projects").html(c_projects);
+
+      $("#t_education").html(c_education);
+
+      $("#t_places").html(c_places);
+
+      $("#t_contact").html(c_contact);
+
+      $("#t_workExperience").html(c_workExperience);
+
+    }
+
+    // condition1 ? result1 : condition2 ? result3 : result4
+    s.html(s.text() == 'de' ? 'zh' : s.text() == 'zh' ? 'en': 'de');
+
   });
 });
 
-/*
-The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control from JavaScript Basics.
-*/
-function locClicks(x,y){
-    console.log("x: " + x,"y: " + y);
-}
-
-
-$(document).click(function(loc) {
-    // 在此处编写你的代码
-    locClicks(loc.pageX,loc.pageY);
-});
 
 
 
 
 
 
+  var mymap;
 
 
-  var mymap //= L.map('map')//.setView([51.4582235, 7.0158171], 13);
-
-
-//var mymap;
-/*
-Start here! initializeMap() is called when page is loaded.
-*/
 function initializeMap() {
 
-  //var locations;
-
-  /*
-  locationFinder() returns an array of every location string from the JSONs
-  written for bio, education, and work.
-  */
   function locationFinder() {
-
-    // initializes an empty array
+   
     var locations = [];
 
-    // adds the single location property from bio to the locations array
     locations.push(bio.born);
-    console.log("bio:" + locations);
-
-    // iterates through school locations and appends each location to
-    // the locations array. Note that forEach is used for array iteration
-    // as described in the Udacity FEND Style Guide:
-    // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
+    //console.log("bio:" + locations);
+  
     if(education.schools.length > 0){
       education.schools.forEach(function(school){
-        console.log("education:" + school.location);
+        //console.log("education:" + school.location);
         locations.push(school.location);
       });
     }
 
-    // iterates through work locations and appends each location to
-    // the locations array. Note that forEach is used for array iteration
-    // as described in the Udacity FEND Style Guide:
-    // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     if(work.jobs.length > 0){
       work.jobs.forEach(function(job){
-        console.log("work:" + job.location);
+        //console.log("work:" + job.location);
         locations.push(job.location);
       });
     }
@@ -173,6 +214,4 @@ function initializeMap() {
 }
 
 
-
-// Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
