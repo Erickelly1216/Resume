@@ -1,7 +1,8 @@
 
 var work = {
-  /*
+  
   "jobs": [
+    /*
     {
       "employer": "employer",
       "title": "title",
@@ -9,8 +10,9 @@ var work = {
       "dates": "Feb 2020 - Current",
       "description": "blabla"
     }
+    */
   ]
-  */
+ 
 };
 
 
