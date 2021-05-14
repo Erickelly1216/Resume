@@ -1,5 +1,6 @@
-/*
+
 var work = {
+  /*
   "jobs": [
     {
       "employer": "employer",
@@ -9,8 +10,9 @@ var work = {
       "description": "blabla"
     }
   ]
+  */
 };
-*/
+
 
 
 var lang  = ((navigator.languages && navigator.languages[0]) || navigator.language || navigator.userLanguage || 'en').substr(0, 2);
