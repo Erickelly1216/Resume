@@ -1,56 +1,43 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
-
-// $("#main").append("jianlu");
-
 
 var work = {
   "jobs": [
-/*
     {
-      "employer": "Udacity",
-      "title": "Course Developer",
-      "location": "Mountain View, CA",
-      "dates": "Feb 2014 - Current",
-      "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
-    },
-    {
-      "employer": "LearnBIG",
-      "title": "Software Engineer",
-      "location": "Seattle, WA",
-      "dates": "May 2013 - Jan 2014",
-      "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
-    },
-    {
-      "employer": "LEAD Academy Charter High School",
-      "title": "Science Teacher",
-      "location": "Nashville, TN",
-      "dates": "Jul 2012 - May 2013",
-      "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
-    },
-    {
-      "employer": "Stratford High School",
-      "title": "Science Teacher",
-      "location": "Nashville, TN",
-      "dates": "Jun 2009 - Jun 2012",
-      "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
+      "employer": "employer",
+      "title": "title",
+      "location": ["Huaian", [33.5524785, 119.1075773], "zz"],
+      "dates": "Feb 2020 - Current",
+      "description": "blabla"
     }
-*/
   ]
-
 };
+*/
+
+
+var lang  = ((navigator.languages && navigator.languages[0]) || navigator.language || navigator.userLanguage || 'en').substr(0, 2);
+//console.log(lang);
+function displayButton(){
+    if(lang == 'de'){
+        internationalizeButton = internationalizeButton.replace("%data%", 'en');
+    }
+    else{
+        lang = 'en';
+        internationalizeButton = internationalizeButton.replace("%data%", 'de');
+    }
+}
+displayButton();
 
 
 var bio = {
-    name : "Jianlu Ma",
+    name : {'zh': "马建鲁", 'de': "Jianlu Ma", 'en': "Jianlu Ma"},
     born : ["Jinan", [36.6507007, 117.1140042], "Born"],
-    role: "",
-    // biopic : "/Users/eric/Documents/studium/ws17:18/Udacity/JS/Javascript基础/project_Ma/images/fry.jpg",
-    // 这里因为文件位于同一根目录下，所以图片地址不需要所有前缀
-    biopic : "images/fry.jpg",
-    // 这里若无空格，那么整段文字将会被作为一个单词处理=> 无分段，占据一整行
-    welcomeMessage : "blablablablablablablablablablablablab lablablablablablablablab lablablablablablablablablablab lablablablablablablablablablablablab lablablablablablablablablablab lablablablablablablablablablablab lablablablablablablablablablablabl ablablablablablablablablabl ablablablablablablab lablablablablablablablablablablab lablablablablabla",
+    role: {'en':"Business Informatics", 'de': "Wirtschaftsinformatik", 'zh': "经济信息"},
+
+    biopic : "images/744e2f77.jpg",
+    welcomeMessage : {
+        'de': "deutsch enm",
+        'zh': "中文 啊",
+        'en':  "english haha"
+    },
     contacts:{
         mobile : "015125865092",
         email : "jan100212@hotmail.com",
@@ -60,30 +47,19 @@ var bio = {
 
 bio.display = function(){
 
-    /*
-    var name = "jianlu";
-    var role = "master";
-    */
-    var formattedName = HTMLheaderName.replace("%data%", bio.name);
-    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+    var formattedName = HTMLheaderName.replace("%data%", bio.name[lang]);
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role[lang]);
     var formattedBioPic = HTMLbioPic.replace("%data%",bio.biopic);
-    var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage[lang]);
 
     $("#header").prepend(formattedBioPic);
     $("#header").prepend(formattedRole);
     $("#header").prepend(formattedName);
     $("#header").append(formattedWelcomeMessage);
 
-    /*
-    $("#header").prepend("asdfafd");
-    $("#header").prepend("dfasfsaf");
-    这样子添加到“header”的文字将不会被显示，因为他们不是h1的形式，参考“helper.js“中的formattedName
-    */
-
 
     if(bio.skills.length > 0){
 
-        // HTMLskillsStart is in file helper.js
         $("#header").append(HTMLskillsStart);
 
         var i =0;
@@ -110,50 +86,34 @@ bio.display();
 var education = {
     schools : [
         {
-            name :"Uni-Augsburg",
+            name :{'de': "Universität Augsburg", 'en': "University of Augsburg", 'zh': "奥格斯堡大学"},
             location :["Augsburg", [48.3668041, 10.8986971], "WiMath"],
-            major : "Wirtschaftsmathematik",
-            degree : "Unfinished",
+            major : {'de': "Wirtschaftsmathematik", 'en': "Economic Mathematics", 'zh': "经济数学"},
+            degree : {'en': "Unfinished", 'de':"Nicht Abgeschlossen", 'zh': "未完成"},
             date : "2012",
-            url : ""
+            
+            url : "https://www.uni-augsburg.de/de/fakultaet/mntf/math/studium/studiengaenge/wima"
         },
         {
-            name :"Uni-DuE",
+            name :{'de': "Universität Duisburg-Essen", 'en': "University of Duisburg-Essen", 'zh': "杜伊斯堡-埃森大学"},
             location :["Essen", [51.4582235, 7.0158171], "WiInf"],
-            major : "Wirtschaftsinformatik",
-            degree : "Bachelor of Science",
+            major : {'de': "Wirtschaftsinformatik", 'en': "Business Informatics", 'zh': "经济信息"},
+            degree : {'en': "Bachelor of Science", 'de': "Bachelor of Science", 'zh': "学士学位"},
             date : "2020",
-            url : ""
-        },
-    ],
-
-/*
-    onlineCourses : [
-        {
-            title : "Front-End Web Developer Nanodegree",
-            school : "udacity",
-            dates : "2014 - 2015",
-            url : "https://www.udacity.com/course/nd001"
-        },
-        {
-            title : "udacityhtml & css",
-            school :"udacity",
-            dates : "ws1718",
-            url :"hahhahahahah"
+            url : "https://www.uni-due.de/studienangebote/studiengang.php?id=110"
         }
     ]
-*/
 };
 
 education.display = function() {
     for(school in education.schools) {
         $("#education").append(HTMLschoolStart);
+        var formattedName = HTMLschoolName.replace("%data%",education.schools[school].name[lang]).replace("%url%",education.schools[school].url);
 
-        var formattedName = HTMLschoolName.replace("%data%",education.schools[school].name);
-        var formattedDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
+        var formattedDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree[lang]);
         var formattedDates = HTMLschoolDates.replace("%data%",education.schools[school].date);
         var formattedLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location[0]);
-        var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[school].major);
+        var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[school].major[lang]);
         $(".education-entry:last").append(formattedName + formattedDegree,formattedDates,formattedLocation,formattedMajor);
     }
 };
@@ -163,20 +123,26 @@ education.display();
 var projects = {
     projects : [
         {
-            title :"Software Entwicklung Project",
+            title :{'de': "Software Entwicklung Projekt", 'en': "Software development projekt", 'zh': "软件开发"},
             dates:"10/2015 - 02/2016",
-            description:"A Bomb-man Game Developed Using LibGDX",
-            images :["images/deckblatt.jpg", "images/spielanleitung.jpg"]
+            description:{'en': "A Bomb-man Game Developed Using LibGDX", 'de': "Ein mit LibGDX entwickeltes Bomb-Man Spiel", 'zh': "使用LibGDX开发的炸弹人游戏"},
+            images :
+            [   
+                ["images/projects/dfd_small.jpg", "images/projects/dfd_big.jpg","Datenfluss_Diagramm"],
+                ["images/projects/createGame_small.png", "images/projects/createGame_big.png","Game_Creating(picture from the network)"]
+            ]
         },
 
         {
-            title :"Bachelor Project",
+            title :{'en':"Bachelor Project", 'de': "Bachelor Projekt", 'zh':"毕业设计"},
             dates:"04/2016 - 08/2016",
-            description:"A Project Management Toolkit Developed Using Excel",
-            images : ["images/BP1.jpg"]
-            //["https://github.com/Erickelly1216/Resume/blob/master/images/BP1.jpg"]
-            //["http://www.google.com/intl/en_com/images/logo_plain.png"]
-            //["/Users/eric/Downloads/img&gif/funny/WhatsApp_Image_2018-01-28_at_20.22.21.jpg"]
+            description:{'en': "A Project Management Toolkit Developed Using Excel", 'de': "Ein mit Excel entwickeltes Projektmanagement-Toolkit", 'zh': "使用excel开发的项目管理软件"},
+            images :
+            [
+                ["images/projects/bp1_small.png","images/projects/bp1_big.png", "BP1"],
+                ["images/projects/bp2_small.png","images/projects/bp2_big.png", "BP2"],
+                ["images/projects/bp3_small.png","images/projects/bp3_big.png", "BP3"]
+            ]
         }
     ],
     display : function(){
@@ -184,21 +150,26 @@ var projects = {
         for(project in projects.projects){
             $("#projects").append(HTMLprojectStart);
 
-            var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+            var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title[lang]);
             $(".project-entry:last").append(formattedTitle);
 
             var formattedDate = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
             $(".project-entry:last").append(formattedDate);
 
-            var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+            var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description[lang]);
             $(".project-entry:last").append(formattedDescription);
 
             if(projects.projects[project].images.length>0){
+                
+                $(".project-entry:last").append('<div class="row">');
                 for(image in projects.projects[project].images){
-                    var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
-                    $(".project-entry:last").append(formattedImage);
+                    var formattedImage = HTMLprojectImage.replace("%big_image%",projects.projects[project].images[image][1]).replace("%thumb_image%",projects.projects[project].images[image][0]).replace("%description%",projects.projects[project].images[image][2]);
+                   
+                    $(".row:last").append(formattedImage);
                 }
+
             }
+
         }
     }
 };
@@ -207,12 +178,9 @@ projects.display();
 function displayWork(){
     if(work.jobs.length > 0){
 
-        // $("#workExperience").append(HTMLworkStart) 写在这里将会使得所有 工作-头衔 写作一行
-        // $("#workExperience").append(HTMLworkStart);
-
         for (job in work.jobs){
 
-            // 写在这里可以使得所有 工作-头衔 写作一列，因为 HTMLworkStart只是一个div “work-entry”，并没有内容
+           
             $("#workExperience").append(HTMLworkStart);
 
             var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -221,26 +189,17 @@ function displayWork(){
 
             var formattedEmployerTitle = formattedEmployer + formattedTitle;
 
-
-            // 这样无法成功写入 formattedEmployerTitle，因为 work-entry不是一个id 而是一个class
-            // $("#work-entry").append(formattedEmployerTitle);
-
-            // 这样会在每一个 work-entry 元素后面写入当前 formattedEmployerTitle
-            // $(".work-entry").append(formattedEmployerTitle);
-
-            // 这里使得写入的 formattedEmployerTitle 作为 workExperience 下属元素 而非 work-entry
-            //$("#workExperience").append(formattedEmployerTitle);
-
-            // :last jQuery 选择器用于返回列表中与 :last 前面的内容完全匹配的 最后一个元素。
-            // 因此对于 work-entry:last，如果存在 3 个 work-entry 元素，则将仅返回第 3 个 work-entry 元素。
-            // 这里使得写入的 formattedEmployerTitle 作为 work-entry 下属元素
-            $(".work-entry:last").append(formattedEmployerTitle);
+            var formattedLocation = HTMLworkLocation.replace("%data%",work.jobs[job].location[0]);
+            $(".work-entry:last").append(formattedLocation);
 
             var formattedDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
             $(".work-entry:last").append(formattedDate);
 
             var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
             $(".work-entry:last").append(formattedDescription);
+
+
+
         }
     }
 }
@@ -249,7 +208,7 @@ displayWork();
 
 
 
-// 这个函数将会在“helper。js”中被调用,用于将姓的字母全部大写
+
 function nameChanger(oldName) {
     var finalName = oldName;
     // Your code goes here!
