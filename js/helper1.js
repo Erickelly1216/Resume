@@ -27,6 +27,7 @@ var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a id="%pTitle%">%data%</a>';//'<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p id="%pDescription%"><br>%data%</p>';//'<p><br>%data%</p>';
+var HTMLprojectImage = '<a href="%big_image%" data-lightbox="roadtrip" data-title="%description%">      <img src="%thumb_image%"></a>';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a id="%sName%" href="%url%">%data%';//'<a href="%url%">%data%';
