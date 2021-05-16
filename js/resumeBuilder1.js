@@ -118,7 +118,7 @@ var projects = {
         {
             title :{'de': "Software Entwicklung Projekt", 'en': "Software development projekt", 'zh': "软件开发"},
             dates:"10/2015 - 02/2016",
-            description:{'en': "A Bomb-man Game Developed Using LibGDX", 'de': "Ein mit LibGDX entwickeltes Bomb-Man Spiel", 'zh': "使用LibGDX开发的炸弹人游戏"},
+            description:{'en': "A Bomb-man Game Developed Using LibGDX", 'de': "Ein mit LibGDX entwickeltes Bomb-Man Spiel", 'zh': "一款使用LibGDX开发的炸弹人游戏"},
             images :
             [   // now each image object is a list with the first element is the thumb_image and the second element is the original image and the third element is the description
                 ["images/projects/dfd_small.jpg", "images/projects/dfd_big.jpg","Datenfluss_Diagramm"],
@@ -130,7 +130,7 @@ var projects = {
         {
             title :{'en':"Bachelor Project", 'de': "Bachelor Projekt", 'zh':"毕业设计"},
             dates:"04/2016 - 08/2016",
-            description:{'en': "A Project Management Toolkit Developed Using Excel", 'de': "Ein mit Excel entwickeltes Projektmanagement-Toolkit", 'zh': "使用excel开发的项目管理软件"},
+            description:{'en': "A Project Management Toolkit Developed Using Excel", 'de': "Ein mit Excel entwickeltes Projektmanagement-Toolkit", 'zh': "一款使用excel开发的项目管理软件"},
             images :
             [
                 ["images/projects/bp1_small.png","images/projects/bp1_big.png", "BP1"],
