@@ -1,4 +1,17 @@
+ /*
 
+This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
+
+Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
+
+Cameron Pittman
+*/
+
+
+/*
+These are HTML strings. As part of the course, you'll be using JavaScript functions
+replace the %data% placeholder text you see in them.
+*/
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span id="role">%data%</span><hr>';
 
@@ -28,6 +41,10 @@ var HTMLprojectTitle = '<a id="%pTitle%">%data%</a>';//'<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p id="%pDescription%"><br>%data%</p>';//'<p><br>%data%</p>';
 var HTMLprojectImage = '<a href="%big_image%" data-lightbox="roadtrip" data-title="%description%">      <img src="%thumb_image%"></a>';
+//'<img src="%data%">';
+// used to zoom in after image been clicked
+//'<div class="click-zoom"><label><input type="checkbox"><img src="%data%"></label></div>';
+
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a id="%sName%" href="%url%">%data%';//'<a href="%url%">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
@@ -66,6 +83,11 @@ var zh_contact = '联系方式';
 var zh_workExperience = "工作经历";
 
 
+/*
+The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires
+you to create a function that will need this helper code to run.
+Don't delete! It hooks up your code to the button you'll be appending.
+*/
 $(document).ready(function() {
     $('button').click(function() {
     /*
@@ -86,6 +108,7 @@ $(document).ready(function() {
         displayZh();
     }
 
+    // condition1 ? result1 : condition2 ? result3 : result4
     s.html(s.text() == 'de' ? 'zh' : s.text() == 'zh' ? 'en': 'de');
 
   });
@@ -111,6 +134,7 @@ function displayDe(){
 
     $("#t_workExperience").html(de_workExperience);
 
+    // change the html part with the corresponding translation of each school in education.schools
     for (school in education.schools){
         $("#"+school+"sName").html(education.schools[school].name.de +' -- '+education.schools[school].degree.de);
         $("#"+school+"sMajor").html("<br>"+"Fach: " + education.schools[school].major.de);
@@ -187,22 +211,60 @@ function displayZh(){
     }
 }
 
+/*
+The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control
+from JavaScript Basics.
+*/
+/*
+function locClicks(x,y){
+    console.log("x: " + x,"y: " + y);
+}
 
+
+$(document).click(function(loc) {
+    // 在此处编写你的代码
+    locClicks(loc.pageX,loc.pageY);
+});
+*/
+
+
+/*
+Start here! initializeMap() is called when page is loaded.
+*/
 function initializeMap() {
 
-    var mymap; 
+    var mymap; //= L.map('map')//.setView([51.4582235, 7.0158171], 13);
 
+  //var locations;
+
+  /*
+  locationFinder() returns an array of every location string from the JSONs
+  written for bio, education, and work.
+  */
   function locationFinder() {
-   
+
+    // initializes an empty array
     var locations = [];
+
+    // adds the single location property from bio to the locations array
     locations.push(bio.born[lang]);
     //console.log("bio:" + locations);
+
+    // iterates through school locations and appends each location to
+    // the locations array. Note that forEach is used for array iteration
+    // as described in the Udacity FEND Style Guide:
+    // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     if(education.schools.length > 0){
       education.schools.forEach(function(school){
         //console.log("education:" + school.location);
         locations.push(school.location[lang]);
       });
     }
+
+    // iterates through work locations and appends each location to
+    // the locations array. Note that forEach is used for array iteration
+    // as described in the Udacity FEND Style Guide:
+    // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     if(work.jobs.length > 0){
       work.jobs.forEach(function(job){
         //console.log("work:" + job.location);
