@@ -1,4 +1,4 @@
- 
+
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span id="role">%data%</span><hr>';
 
@@ -24,20 +24,16 @@ var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a>%data%</a>';//'<a href="#">%data%</a>';
+var HTMLprojectTitle = '<a id="%pTitle%">%data%</a>';//'<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
+var HTMLprojectDescription = '<p id="%pDescription%"><br>%data%</p>';//'<p><br>%data%</p>';
 var HTMLprojectImage = '<a href="%big_image%" data-lightbox="roadtrip" data-title="%description%">      <img src="%thumb_image%"></a>';
-//'<img src="%data%">';
-// used to zoom in after image been clicked
-//'<div class="click-zoom"><label><input type="checkbox"><img src="%data%"></label></div>';
-
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="%url%">%data%';
+var HTMLschoolName = '<a id="%sName%" href="%url%">%data%';//'<a href="%url%">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolLocation = '<div id="%sLocation%" class="location-text">%data%</div>';
+var HTMLschoolMajor = '<em id="%sMajor%" ><br>Major: %data%</em>';//'<em><br>Major: %data%</em>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
@@ -51,125 +47,162 @@ var googleMap = '<div id="map"></div>';
 var de_projects = "Projekts";
 var de_education = "Ausbildugen";
 var de_places = "Wo ich studiert und gelebt habe";
-var de_skills_h3 = 'Fähigkeiten auf einen Blick';
+var de_skills_h3 = 'Fähigkeiten auf einen Blick:';
 var de_contact = 'Kontakt';
 var de_workExperience = "Berufserfahrungen";
 
 var en_projects = "Projects";
 var en_education = "Education";
 var en_places = "Places I studied and lived";
-var en_skills_h3 = 'Skills at a Glance';
+var en_skills_h3 = 'Skills at a Glance:';
 var en_contact = 'Contact';
 var en_workExperience = 'Work Experience';
 
-var c_projects = "项目举例";
-var c_education = "教育程度";
-var c_places = "我住过和学习过的地方";
-var c_skills_h3 = '技能概览';
-var c_contact = '联系方式';
-var c_workExperience = "工作经历";
+var zh_projects = "项目举例";
+var zh_education = "教育程度";
+var zh_places = "我住过和学习过的地方";
+var zh_skills_h3 = '技能概览:';
+var zh_contact = '联系方式';
+var zh_workExperience = "工作经历";
 
 
 $(document).ready(function() {
-  $('button').click(function() {
-
+    $('button').click(function() {
+    /*
+    var $name = $('#name');
+    var iName = nameChanger($name.text()) || function(){};
+    $name.html(iName);
+    */
     var s = $('#button');
 
     if(s.text()=='de'){
-
-      $('#name').html(bio.name.de);
-
-      $('#welcome_message').html(bio.welcomeMessage.de);
-
-      $('#role').html(bio.role.de);
-
-      $('#skills-h3').html(de_skills_h3);
-
-      $("#t_projects").html(de_projects);
-
-      $("#t_education").html(de_education);
-
-      $("#t_places").html(de_places);
-
-      $("#t_contact").html(de_contact);
-
-      $("#t_workExperience").html(de_workExperience);
-
-    } else
-      if(s.text()=='en'){
-
-      $('#name').html(bio.name.en);
-
-      $('#welcome_message').html(bio.welcomeMessage.en);
-
-      $('#role').html(bio.role.en);
-
-      $('#skills-h3').html(en_skills_h3);
-
-      $("#t_projects").html(en_projects);
-
-      $("#t_education").html(en_education);
-
-      $("#t_places").html(en_places);
-
-      $("#t_contact").html(en_contact);
-
-      $("#t_workExperience").html(en_workExperience);
-
-    } else
-      if(s.text()=='zh'){
-
-      $('#name').html(bio.name.zh);
-
-      $('#welcome_message').html(bio.welcomeMessage.zh);
-
-      $('#role').html(bio.role.zh);
-
-      $('#skills-h3').html(c_skills_h3);
-
-      $("#t_projects").html(c_projects);
-
-      $("#t_education").html(c_education);
-
-      $("#t_places").html(c_places);
-
-      $("#t_contact").html(c_contact);
-
-      $("#t_workExperience").html(c_workExperience);
+        displayDe();
+    }
+    else if(s.text()=='en'){
+        displayEn();
 
     }
+    else if(s.text()=='zh'){
+        displayZh();
+    }
 
-    // condition1 ? result1 : condition2 ? result3 : result4
     s.html(s.text() == 'de' ? 'zh' : s.text() == 'zh' ? 'en': 'de');
 
   });
 });
 
 
+function displayDe(){
+    $('#name').html(bio.name.de);
 
+    $('#welcome_message').html(bio.welcomeMessage.de);
 
+    $('#role').html(bio.role.de);
 
+    $('#skills-h3').html(de_skills_h3);
 
+    $("#t_projects").html(de_projects);
 
-  var mymap;
+    $("#t_education").html(de_education);
+
+    $("#t_places").html(de_places);
+
+    $("#t_contact").html(de_contact);
+
+    $("#t_workExperience").html(de_workExperience);
+
+    for (school in education.schools){
+        $("#"+school+"sName").html(education.schools[school].name.de +' -- '+education.schools[school].degree.de);
+        $("#"+school+"sMajor").html("<br>"+"Fach: " + education.schools[school].major.de);
+        $("#"+school+"sLocation").html(education.schools[school].location.de[0]);
+    }
+
+    for (project in projects.projects){
+        $("#"+project+"pTitle").html(projects.projects[project].title.de);
+        $("#"+project+"pDescription").html("<br>"+projects.projects[project].description.de);
+    }
+}
+
+function displayEn(){
+    $('#name').html(bio.name.en);
+
+    $('#welcome_message').html(bio.welcomeMessage.en);
+
+    $('#role').html(bio.role.en);
+
+    $('#skills-h3').html(en_skills_h3);
+
+    $("#t_projects").html(en_projects);
+
+    $("#t_education").html(en_education);
+
+    $("#t_places").html(en_places);
+
+    $("#t_contact").html(en_contact);
+
+    $("#t_workExperience").html(en_workExperience);
+
+    for (school in education.schools){
+        $("#"+school+"sName").html(education.schools[school].name.en+ ' -- '+education.schools[school].degree.en);
+        $("#"+school+"sMajor").html("<br>"+"Major: " + education.schools[school].major.en);
+        $("#"+school+"sLocation").html(education.schools[school].location.en[0]);
+    }
+
+    for (project in projects.projects){
+        $("#"+project+"pTitle").html(projects.projects[project].title.en);
+        $("#"+project+"pDescription").html("<br>"+projects.projects[project].description.en);
+    }
+}
+
+function displayZh(){
+
+    $('#name').html(bio.name.zh);
+
+    $('#welcome_message').html(bio.welcomeMessage.zh);
+
+    $('#role').html(bio.role.zh);
+
+    $('#skills-h3').html(zh_skills_h3);
+
+    $("#t_projects").html(zh_projects);
+
+    $("#t_education").html(zh_education);
+
+    $("#t_places").html(zh_places);
+
+    $("#t_contact").html(zh_contact);
+
+    $("#t_workExperience").html(zh_workExperience);
+
+    for (school in education.schools){
+        $("#"+school+"sName").html(education.schools[school].name.zh +' -- '+education.schools[school].degree.zh);
+        // here we have to manually add the "<br>"+"专业:" cause they are regarded as the content of html(text)
+        $("#"+school+"sMajor").html("<br>"+"专业: " +education.schools[school].major.zh);
+        $("#"+school+"sLocation").html(education.schools[school].location.zh[0]);
+    }
+
+    for (project in projects.projects){
+        $("#"+project+"pTitle").html(projects.projects[project].title.zh);
+        $("#"+project+"pDescription").html("<br>"+projects.projects[project].description.zh);
+    }
+}
 
 
 function initializeMap() {
 
+    var mymap; 
+
   function locationFinder() {
    
     var locations = [];
-
-    locations.push(bio.born);
+    locations.push(bio.born[lang]);
     //console.log("bio:" + locations);
-  
     if(education.schools.length > 0){
       education.schools.forEach(function(school){
         //console.log("education:" + school.location);
-        locations.push(school.location);
+        locations.push(school.location[lang]);
       });
     }
-
     if(work.jobs.length > 0){
       work.jobs.forEach(function(job){
         //console.log("work:" + job.location);
@@ -214,4 +247,6 @@ function initializeMap() {
 }
 
 
+
+// Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
