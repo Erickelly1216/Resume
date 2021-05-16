@@ -105,7 +105,7 @@ education.display = function() {
 
         var formattedName = HTMLschoolName.replace("%data%",education.schools[school].name[lang]).replace("%url%",education.schools[school].url).replace("%sName%",school+'sName');
         var formattedDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree[lang]);
-        var formattedDates = HTMLschoolDates.replace("%data%",education.schools[school].date);
+        var formattedDates = "";//HTMLschoolDates.replace("%data%",education.schools[school].date);
         var formattedLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location[lang][0]).replace("%sLocation%",school+'sLocation');
         var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[school].major[lang]).replace("%sMajor%",school+'sMajor');
         $(".education-entry:last").append(formattedName + formattedDegree,formattedDates,formattedLocation,formattedMajor);
@@ -147,7 +147,7 @@ var projects = {
             var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title[lang]).replace("%pTitle%",project+"pTitle");
             $(".project-entry:last").append(formattedTitle);
 
-            var formattedDate = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+            var formattedDate = "";//HTMLprojectDates.replace("%data%", projects.projects[project].dates);
             $(".project-entry:last").append(formattedDate);
 
             var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description[lang]).replace("%pDescription%",project+"pDescription");
