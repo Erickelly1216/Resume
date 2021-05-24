@@ -19,15 +19,53 @@ var bio = {
     biopic : "images/744e2f77.jpg",
     
     welcomeMessage : {
-        'de': "deutsch enm",
-        'zh': "中文 啊",
-        'en':  "english haha"
+        'de': "Als Absolvent des interdisziplinären Faches Wirtschaftsinformatik (Wirtschaft mit Schwerpunkt auf Betriebswirtschaft und Informatik) besteht meinen Aufgaben darin, die spezifischer Probleme im tatsächlichen Geschäft durch IT-basierte Ansätze zu lösen und die Sicherstellung der Kommunikation zwischen IT-Abteilung und Nicht-IT-Abteilung IT Abteilung. Darüber hinaus interessiere ich mich auch sehr für Software- und Webentwicklung sowie Kenntnisse in der Datenanalyse.",
+        'zh': "作为一名跨学科专业 经济信息（侧重于工商管理和计算机科学的经济学）的毕业生，我的任务包括通过基于IT的方法来解决实际业务中的具体问题以及确保IT部门与非IT部门之间的交流与协作。 所以，我同时具备经济学和应用计算机科学方面的的专业知识。除此之外，我还对软件和网页开发，以及数据分析方面的知识非常感兴趣。",
+        'en': "As a graduate of the interdisciplinary subject Business Informatics (Economics with a focus on business administration and computer science ), my tasks include solving specific problems in actual business through IT-based approaches and ensuring the communication/coordination between the IT department and non-IT department. Therefore, I have both economics and applied computer science expertise. In addition, I am also very interested in software and web development, as well as knowledge of data analysis."
     },
     contacts:{
         mobile : "015125865092",
         email : "jan100212@hotmail.com",
     },
-    skills : ["java", "python", "js", "df", "df", "df", "df"]
+    skills : {
+        "subject": [
+            {x: "A", value: 100, name: "Informatik", custom_field: "Progammierung, Datenbankmanagement"},
+            {x: "B", value: 100, name: "Betriebswirtschaftslehre", custom_field: "Rechnungswesen"},
+            {x: "C", value: 100, name: "Schlüsselqualifikationen", custom_field: "Englisch, Statistik"},
+            {x:
+              ["A", "B"], value: 20, name: "Informatik und Betriebswirtschaftslehre", custom_field: "IT-Projektmanagement, Unternehmensmodellierung"},
+            {x: ["A", "C"], value: 20, name: "Informatik und Schlüsselqualifikationen"},
+            {x: ["B", "C"], value: 20, name: "Betriebswirtschaftslehre und Schlüsselqualifikationen"},
+            {x: ["A", "B", "C"], value: 20, name: "WI", custom_field: "Information Systems/经济信息"}
+        ],
+        "skills": [
+            {value: "Skills",
+                children: [
+                    {value: "Programming", children: [
+                        {value: "Python",weight: 2, description: "mostly used"},
+                        {value: "Java", weight: 1, description: "learned at college"},
+                        {value: "Javascripts(Html&CSS)", weight: 2, description: "self-study"},
+                        {value: "C++/C#", weight: 1, description: "self-study"}
+                    ]},
+                    {value: "Datenbank", children: [
+                        {value: "Mysql", weight: 2, description: "learned at college"},
+                        {value: "Sqlite", weight: 1, description: "self-study"},
+                        {value: "Mongdb", weight: 1, description: "self-study"}
+                    ]},
+                    {value:   "Data-analysis", children: [
+                        {value: "R", weight: 2, description: "learned from statistics course"},
+                        {value: "Tableau", weight: 1, description: "data visualization"},
+                        {value: "Excel", weight: 2, description: "self-study and bachelor project"}
+                    ]},
+                    {value:   "Languages", children: [
+                        {value: "Chinese", weight: 2, description: "first language"},
+                        {value: "English", weight: 2, description: "C1"},
+                        {value: "German", weight: 2, description: "B2"}
+                    ]}
+                ]
+            }
+        ]
+    }
 };
 
 bio.display = function(){
@@ -42,19 +80,12 @@ bio.display = function(){
     $("#header").prepend(formattedName);
     $("#header").append(formattedWelcomeMessage);
 
-    if(bio.skills.length > 0){
+    if(bio.skills){
 
+        $("#skill-image").append(vennChart);
+        $("#skill-image").append(wordChart);
         // HTMLskillsStart is in file helper.js
         $("#header").append(HTMLskillsStart);
-
-        var i =0;
-        while (i < bio.skills.length){
-            var formattedSkill = HTMLskills.replace("%data%",bio.skills[i]);
-
-            $("#skills").append(formattedSkill);
-
-            i++;
-        }
     }
 
     var formattedMobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
