@@ -13,8 +13,11 @@ var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</sp
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span id="welcome_message" class="welcome-message">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+var HTMLskillsStart = '<div><h3 id="skills-h3"></h3></div>';
+var HTMLskills = '<li id="skill-container" class="flex-item"><span class="white-text">%data%</span></li>';
+var vennChart=   '<div id="vennChart-container"></div>';
+var wordChart=  '<div id="wordChart-container"></div>';
+
 
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
@@ -249,7 +252,56 @@ function initializeMap() {
 
 }
 
+anychart.onDocumentReady(function () {
 
+    // create a chart and set the data
+    chart = anychart.venn(bio.skills.subject);
+
+    // configure labels of intersections (>2 elements)
+      chart.intersections().labels().format(function() {
+        if (this.x.length > 2)
+          return this.name;
+      });
+
+    // configure tooltips of circles
+    chart.tooltip().format(
+        "{%custom_field}"
+    );
+
+     // configure tooltips of intersections
+    chart.intersections().tooltip().format(
+        "{%custom_field}"
+    );
+
+    // disable the legend
+    chart.legend(false);
+
+    // set the container id
+    chart.container('vennChart-container');
+
+    // initiate drawing the chart
+    chart.draw();
+});
+
+
+
+anychart.onDocumentReady(function () {
+
+    // create a chart and set the data
+    var chart = anychart.wordtree(bio.skills.skills, "as-tree");
+
+    // set the container id
+    chart.container("wordChart-container");
+
+    var tooltip = chart.tooltip();
+    tooltip.format("{%description}");
+
+    chart.maxFontSize(20);
+    chart.minFontSize(10);
+
+    // initiate drawing the chart
+    chart.draw();
+});
 
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
