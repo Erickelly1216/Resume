@@ -51,21 +51,21 @@ var googleMap = '<div id="map"></div>';
 var de_projects = "Projekts";
 var de_education = "Ausbildugen";
 var de_places = "Wo ich studiert und gelebt habe";
-var de_skills_h3 = 'Fähigkeiten auf einen Blick:';
+var de_skills_h3 = 'Mehr über das Fach und meine Fähigkeiten:';
 var de_contact = 'Kontakt';
 var de_workExperience = "Berufserfahrungen";
 
 var en_projects = "Projects";
 var en_education = "Education";
 var en_places = "Places I studied and lived";
-var en_skills_h3 = 'Skills at a Glance:';
+var en_skills_h3 = 'More about my subjects and skills:';
 var en_contact = 'Contact';
 var en_workExperience = 'Work Experience';
 
 var zh_projects = "项目举例";
 var zh_education = "教育程度";
 var zh_places = "我住过和学习过的地方";
-var zh_skills_h3 = '技能概览:';
+var zh_skills_h3 = '专业和技能概览:';
 var zh_contact = '联系方式';
 var zh_workExperience = "工作经历";
 
