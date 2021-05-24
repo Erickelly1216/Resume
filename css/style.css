@@ -94,14 +94,19 @@ a {
 
 .welcome-message {
   font-style: italic;
-  font-size: 18px;
+  font-size: 17px;
   color: #f3f3f3;
   line-height: 28px;
+  text-align: center;
 }
 
 #skills-h3 {
   color: #f5ae23;
   display: none;
+  position: absolute;
+  bottom: 30px;
+  left: 220px;
+
 }
 
 .orange {
@@ -128,9 +133,11 @@ a {
   background-color: #4a4a4a;
 }
 
-/* TODO: Replace with image later */
 #header {
   background-color: #484848;
+
+  position: relative;
+
 }
 
 .flex-box {
@@ -225,7 +232,6 @@ span {
   }
 }
 
-
 .button {
   padding: 3px 11px;
   font-size: 14px;
@@ -252,6 +258,21 @@ span {
 
 .row {
   display: flex;
+}
+
+#skill-image{
+    height: 100%;
+    margin: 0 5%;
+    display: flex;
+}
+
+#vennChart-container{
+    height: 300px;
+    width: 50%;
+}
+
+#wordChart-container{
+    flex: 1;
 }
 
 .leaflet-fade-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-zoom-animated { will-change:auto !important; }
