@@ -14,7 +14,10 @@ var bio = {
         'en': ["Jinan", [36.6507007, 117.1140042], "Born"],
         'zh': ["济南", [36.6507007, 117.1140042], "出生"],
     },
-    role: {'en':"Business Informatics", 'de': "Wirtschaftsinformatik", 'zh': "经济信息"},
+    role: {        
+        'en': "IT-Consultant, Software and Web developer, Data Analyst",
+        'de': "IT-Berater, Software- und Webentwickler, Data Analyst",
+        'zh': "IT-咨询，软件与网页开发，数据分析"},
 
     biopic : "images/744e2f77.jpg",
     
