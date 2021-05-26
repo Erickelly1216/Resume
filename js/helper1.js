@@ -54,6 +54,7 @@ var de_places = "Wo ich studiert und gelebt habe";
 var de_skills_h3 = 'Mehr über das Fach und meine Fähigkeiten:';
 var de_contact = 'Kontakt';
 var de_workExperience = "Berufserfahrungen";
+var de_title = "Lebenslauf";
 
 var en_projects = "Projects";
 var en_education = "Education";
@@ -61,6 +62,7 @@ var en_places = "Places I studied and lived";
 var en_skills_h3 = 'More about my subjects and skills:';
 var en_contact = 'Contact';
 var en_workExperience = 'Work Experience';
+var en_title = "Resume";
 
 var zh_projects = "项目举例";
 var zh_education = "教育程度";
@@ -68,6 +70,7 @@ var zh_places = "我住过和学习过的地方";
 var zh_skills_h3 = '专业和技能概览:';
 var zh_contact = '联系方式';
 var zh_workExperience = "工作经历";
+var zh_title = "简历";
 
 $(document).ready(function() {
     $('button').click(function() {
@@ -114,6 +117,8 @@ function displayDe(){
     $("#t_contact").html(de_contact);
 
     $("#t_workExperience").html(de_workExperience);
+    
+    $("#t_title").html(de_title);
 
     // change the html part with the corresponding translation of each school in education.schools
     for (school in education.schools){
@@ -146,6 +151,8 @@ function displayEn(){
     $("#t_contact").html(en_contact);
 
     $("#t_workExperience").html(en_workExperience);
+    
+    $("#t_title").html(en_title);
 
     for (school in education.schools){
         $("#"+school+"sName").html(education.schools[school].name.en+ ' -- '+education.schools[school].degree.en);
@@ -178,6 +185,8 @@ function displayZh(){
     $("#t_contact").html(zh_contact);
 
     $("#t_workExperience").html(zh_workExperience);
+    
+    $("#t_title").html(zh_title);
 
     for (school in education.schools){
         $("#"+school+"sName").html(education.schools[school].name.zh +' -- '+education.schools[school].degree.zh);
