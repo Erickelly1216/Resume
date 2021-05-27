@@ -16,7 +16,7 @@ var bio = {
     },
     role: {        
         'en': "IT-Consultant, Software and Web developer, Data Analyst",
-        'de': "IT-Berater, Software- und Webentwickler, Data Analyst",
+        'de': "IT-Berater, Software- und Webentwickler, Daten Analyst",
         'zh': "IT-咨询，软件与网页开发，数据分析"},
 
     biopic : "images/744e2f77.jpg",
@@ -31,37 +31,59 @@ var bio = {
         email : "jan100212@hotmail.com",
     },
     skills : {
-        "subject": [
-            {x: "A", value: 100, name: "Informatik", custom_field: "Progammierung, Datenbankmanagement"},
-            {x: "B", value: 100, name: "Betriebswirtschaftslehre", custom_field: "Rechnungswesen"},
+        "subject": {
+            "de": [
+            {x: "A", value: 100, name: "Informatik", custom_field: "Programmierung, Datenbankmanagementsystem"},
+            {x: "B", value: 100, name: "Betriebswirtschaftslehre", custom_field: "Geschäftsleitung(z.B. Rechnungswesen)"},
             {x: "C", value: 100, name: "Schlüsselqualifikationen", custom_field: "Englisch, Statistik"},
             {x:
               ["A", "B"], value: 20, name: "Informatik und Betriebswirtschaftslehre", custom_field: "IT-Projektmanagement, Unternehmensmodellierung"},
             {x: ["A", "C"], value: 20, name: "Informatik und Schlüsselqualifikationen"},
             {x: ["B", "C"], value: 20, name: "Betriebswirtschaftslehre und Schlüsselqualifikationen"},
-            {x: ["A", "B", "C"], value: 20, name: "WI", custom_field: "Information Systems/经济信息"}
-        ],
+            {x: ["A", "B", "C"], value: 20, name: "WI", custom_field: "Wirtschaftsinformatik"}
+            ],
+            "en": [
+            {x: "A", value: 100, name: "Informatics", custom_field: "Programming, Database Management"},
+            {x: "B", value: 100, name: "Economics", custom_field: "Business Administration(e.g Management accounting)"},
+            {x: "C", value: 100, name: "Key qualifications", custom_field: "English, Statistics"},
+            {x:
+              ["A", "B"], value: 20, name: "Informatics and Economics", custom_field: "IT-Project management, Enterprise Modeling"},
+            {x: ["A", "C"], value: 20, name: "Informatics and Key qualifications"},
+            {x: ["B", "C"], value: 20, name: "Economics and Key qualifications"},
+            {x: ["A", "B", "C"], value: 20, name: "Bus. Inform.", custom_field: "Business Informatics"}
+            ],
+            "zh": [
+            {x: "A", value: 100, name: "计算机科学", custom_field: "编程，数据库管理"},
+            {x: "B", value: 100, name: "企业经济学", custom_field: "企业管理（会计学等）"},
+            {x: "C", value: 100, name: "关键技能", custom_field: "英语， 统计学"},
+            {x:
+              ["A", "B"], value: 20, name: "计算机和经济学", custom_field: "IT项目管理, 企业建模"},
+            {x: ["A", "C"], value: 20, name: "信息学和关键技能"},
+            {x: ["B", "C"], value: 20, name: "经济学和关键技能"},
+            {x: ["A", "B", "C"], value: 20, name: "经济信息", custom_field: "信息系统管理"}
+            ]
+        },
         "skills": [
             {value: "Skills",
                 children: [
                     {value: "Programming", children: [
-                        {value: "Python",weight: 2, description: "mostly used"},
-                        {value: "Java", weight: 1, description: "learned at college"},
-                        {value: "Javascripts(Html&CSS)", weight: 2, description: "self-study"},
-                        {value: "C++/C#", weight: 1, description: "self-study"}
+                        {value: "Python",weight: 3, description: "mostly used/meistens verwendet/最常用"},
+                        {value: "Java", weight: 2, description: "college course/Uni-kurs/大学课程"},
+                        {value: "Javascripts(Html&CSS)", weight: 2, description: "self-taught/selbst erlernt/自学"},
+                        {value: "C++/C#", weight: 1, description: "selbst erlernt/self-taught/自学"}
                     ]},
-                    {value: "Datenbank", children: [
-                        {value: "Mysql", weight: 2, description: "learned at college"},
-                        {value: "Sqlite", weight: 1, description: "self-study"},
-                        {value: "Mongdb", weight: 1, description: "self-study"}
+                    {value: "Database", children: [
+                        {value: "Mysql", weight: 2, description: "college course/Uni-kurs/大学课程"},
+                        {value: "Sqlite", weight: 1, description: "self-taught/selbst erlernt/自学"},
+                        {value: "Mongdb", weight: 1, description: "self-taught/selbst erlernt/自学"}
                     ]},
                     {value:   "Data-analysis", children: [
-                        {value: "R", weight: 2, description: "learned from statistics course"},
-                        {value: "Tableau", weight: 1, description: "data visualization"},
-                        {value: "Excel", weight: 2, description: "self-study and bachelor project"}
+                        {value: "R", weight: 2, description: "college course/Uni-kurs/大学课程"},
+                        {value: "Tableau", weight: 1, description: "Self-taught/selbst erlernt/自学"},
+                        {value: "Excel", weight: 2, description: "Self-taught/selbst erlernt/自学"}
                     ]},
                     {value:   "Languages", children: [
-                        {value: "Chinese", weight: 2, description: "first language"},
+                        {value: "Chinese", weight: 2, description: "First Language/Muttersprache"},
                         {value: "English", weight: 2, description: "C1"},
                         {value: "German", weight: 2, description: "B2"}
                     ]}
