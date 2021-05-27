@@ -48,7 +48,7 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 var internationalizeButton = '<button class="button" id="button">%data%</button>';
 var googleMap = '<div id="map"></div>';
 
-var de_projects = "Projekts";
+var de_projects = "Projektbeispiele";
 var de_education = "Ausbildugen";
 var de_places = "Wo ich studiert und gelebt habe";
 var de_skills_h3 = 'Mehr über das Fach und meine Fähigkeiten:';
@@ -56,10 +56,10 @@ var de_contact = 'Kontakt';
 var de_workExperience = "Berufserfahrungen";
 var de_title = "Lebenslauf";
 
-var en_projects = "Projects";
+var en_projects = "Project examples";
 var en_education = "Education";
 var en_places = "Places I studied and lived";
-var en_skills_h3 = 'More about my subjects and skills:';
+var en_skills_h3 = 'More about my subject and skills:';
 var en_contact = 'Contact';
 var en_workExperience = 'Work Experience';
 var en_title = "Resume";
@@ -264,7 +264,7 @@ function initializeMap() {
 anychart.onDocumentReady(function () {
 
     // create a chart and set the data
-    chart = anychart.venn(bio.skills.subject);
+    chart = anychart.venn(bio.skills.subject[lang]);
 
     // configure labels of intersections (>2 elements)
       chart.intersections().labels().format(function() {
