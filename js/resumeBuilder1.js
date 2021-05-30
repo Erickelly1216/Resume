@@ -178,20 +178,29 @@ var projects = {
             images :
             [   // now each image object is a list with the first element is the thumb_image and the second element is the original image and the third element is the description
                 ["images/projects/dfd_small.jpg", "images/projects/dfd_big.jpg","Datenfluss_Diagramm"],
-                ["images/projects/createGame_small.png", "images/projects/createGame_big.png","Game_Creating(picture from the network)"],
-                ["images/projects/gameModel_small.png", "images/projects/gameModel_big.png","Game_Model"]
+                ["images/projects/gameModel_small.png", "images/projects/gameModel_big.png","Spiel-Modell"]
             ]
         },
-
         {
             title :{'en':"Bachelor Project", 'de': "Bachelor Projekt", 'zh':"毕业设计"},
             dates:"04/2016 - 08/2016",
             description:{'en': "A Project Management Toolkit Developed Using Excel", 'de': "Ein mit Excel entwickeltes Projektmanagement-Toolkit", 'zh': "一款使用excel开发的项目管理软件"},
             images :
             [
-                ["images/projects/bp1_small.png","images/projects/bp1_big.png", "BP1"],
-                ["images/projects/bp2_small.png","images/projects/bp2_big.png", "BP2"],
-                ["images/projects/bp3_small.png","images/projects/bp3_big.png", "BP3"]
+                ["images/projects/bp1_small.png","images/projects/bp1_big.png", "Neue Aktivität hinzufügen"],
+                ["images/projects/bp2_small.png","images/projects/bp2_big.png", "hinzugefügt Aktivität"],
+                ["images/projects/bp3_small.png","images/projects/bp3_big.png", "Übersicht des Werkzeugs"]
+            ]
+        },
+        {
+            title :{'en':"Web Development", 'de': "Webentwicklung", 'zh':"Web开发"},
+            dates:"09/2020 - 11/2020",
+            description:{'en': "A Blog Website Developed Using Google App Engine (GAE) in Python", 'de': "Eine Blog-Website, die mit Google App Engine (GAE) in Python entwickelt", 'zh': "一个使用Python在 Google App Engine (GAE) 中开发的博客网站"},
+            images :
+            [
+                ["images/projects/wd1_small.png","images/projects/wd1_big.png", "neu Blog hinzufügen"],
+                ["images/projects/wd2_small.png","images/projects/wd2_big.png", "Alle Blogs"],
+                ["images/projects/wd3_small.png","images/projects/wd3_big.png", "Blogs in GAE Datenbank"]
             ]
         }
     ],
