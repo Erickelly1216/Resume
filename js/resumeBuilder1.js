@@ -189,7 +189,7 @@ var projects = {
             [
                 ["images/projects/bp1_small.png","images/projects/bp1_big.png", "Neue Aktivität hinzufügen"],
                 ["images/projects/bp2_small.png","images/projects/bp2_big.png", "hinzugefügt Aktivität"],
-                ["images/projects/bp3_small.png","images/projects/bp3_big.png", "Übersicht des Werkzeugs"]
+                ["images/projects/bp3_small.png","images/projects/bp3_big.png", "Überblick des Werkzeugs"]
             ]
         },
         {
