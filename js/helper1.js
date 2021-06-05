@@ -45,7 +45,7 @@ var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
-var internationalizeButton = '<button class="button" id="button">%data%</button>';
+var internationalizeButton = '<button class="button" id="button1">%data%</button>';
 var googleMap = '<div id="map"></div>';
 
 var de_projects = "Projektbeispiele";
@@ -73,13 +73,13 @@ var zh_workExperience = "工作经历";
 var zh_title = "简历";
 
 $(document).ready(function() {
-    $('button').click(function() {
+    $('#button1').click(function() {
         /*
         var $name = $('#name');
         var iName = nameChanger($name.text()) || function(){};
         $name.html(iName);
         */
-        var s = $('#button');
+        var s = $('#button1');
 
         if(s.text()=='de'){
             displayDe();
