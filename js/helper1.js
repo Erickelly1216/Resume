@@ -13,7 +13,7 @@ var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</sp
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span id="welcome_message" class="welcome-message">%data%</span>';
 
-var HTMLskillsStart = '<div><h3 id="skills-h3"></h3></div>';
+var HTMLskillsStart = '<button class="collapsible" id="skills-h3"></button>';
 var HTMLskills = '<li id="skill-container" class="flex-item"><span class="white-text">%data%</span></li>';
 var vennChart=   '<div id="vennChart-container"></div>';
 var wordChart=  '<div id="wordChart-container"></div>';
@@ -74,28 +74,38 @@ var zh_title = "简历";
 
 $(document).ready(function() {
     $('button').click(function() {
-    /*
-    var $name = $('#name');
-    var iName = nameChanger($name.text()) || function(){};
-    $name.html(iName);
-    */
-    var s = $('#button');
+        /*
+        var $name = $('#name');
+        var iName = nameChanger($name.text()) || function(){};
+        $name.html(iName);
+        */
+        var s = $('#button');
 
-    if(s.text()=='de'){
-        displayDe();
-    }
-    else if(s.text()=='en'){
-        displayEn();
+        if(s.text()=='de'){
+            displayDe();
+        }
+        else if(s.text()=='en'){
+            displayEn();
 
-    }
-    else if(s.text()=='zh'){
-        displayZh();
-    }
+        }
+        else if(s.text()=='zh'){
+            displayZh();
+        }
 
-    // condition1 ? result1 : condition2 ? result3 : result4
-    s.html(s.text() == 'de' ? 'zh' : s.text() == 'zh' ? 'en': 'de');
+        // condition1 ? result1 : condition2 ? result3 : result4
+        s.html(s.text() == 'de' ? 'zh' : s.text() == 'zh' ? 'en': 'de');
+    });
+    var coll = document.getElementsByClassName("collapsible");
 
-  });
+    coll[0].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = document.getElementById("skill-image");
+        if (content.style.maxHeight){
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
 });
 
 
