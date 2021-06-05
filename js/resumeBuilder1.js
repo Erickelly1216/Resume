@@ -33,31 +33,31 @@ var bio = {
     skills : {
         "subject": {
             "de": [
-            {x: "A", value: 100, name: "Informatik", custom_field: "Programmierung, Datenbankmanagementsystem"},
-            {x: "B", value: 100, name: "Betriebswirtschaftslehre", custom_field: "Rechnungswesen, Unternehmensführung"},
-            {x: "C", value: 100, name: "Schlüsselqualifikationen", custom_field: "Englisch, Statistik"},
+            {x: "A", value: 100, name: "Informatik", custom_field: "Programmierung, Datenbankmanagementsystem usw"},
+            {x: "B", value: 100, name: "Betriebswirtschaftslehre", custom_field: "Rechnungswesen, Unternehmensführung usw"},
+            {x: "C", value: 100, name: "Schlüsselqualifikationen", custom_field: "Englisch, Statistik usw"},
             {x:
-              ["A", "B"], value: 20, name: "Informatik und Betriebswirtschaftslehre", custom_field: "IT-Projektmanagement, Unternehmensmodellierung"},
+              ["A", "B"], value: 20, name: "Informatik und Betriebswirtschaftslehre", custom_field: "IT-Projektmanagement, Unternehmensmodellierung, usw"},
             {x: ["A", "C"], value: 20, name: "Informatik und Schlüsselqualifikationen"},
             {x: ["B", "C"], value: 20, name: "Betriebswirtschaftslehre und Schlüsselqualifikationen"},
             {x: ["A", "B", "C"], value: 20, name: "WI", custom_field: "Wirtschaftsinformatik"}
             ],
             "en": [
-            {x: "A", value: 100, name: "Informatics", custom_field: "Programming, Database Management"},
-            {x: "B", value: 100, name: "Economics", custom_field: "Business Management, Management accounting"},
-            {x: "C", value: 100, name: "Key qualifications", custom_field: "English, Statistics"},
+            {x: "A", value: 100, name: "Informatics", custom_field: "Programming, Database Management, etc"},
+            {x: "B", value: 100, name: "Economics", custom_field: "Business Management, Management accounting, etc"},
+            {x: "C", value: 100, name: "Key qualifications", custom_field: "English, Statistics, etc"},
             {x:
-              ["A", "B"], value: 20, name: "Informatics and Economics", custom_field: "IT-Project management, Enterprise Modeling"},
+              ["A", "B"], value: 20, name: "Informatics and Economics", custom_field: "IT-Project management, Enterprise Modeling, etc"},
             {x: ["A", "C"], value: 20, name: "Informatics and Key qualifications"},
             {x: ["B", "C"], value: 20, name: "Economics and Key qualifications"},
             {x: ["A", "B", "C"], value: 20, name: "Bus. Inform.", custom_field: "Business Informatics"}
             ],
             "zh": [
-            {x: "A", value: 100, name: "计算机科学", custom_field: "编程，数据库管理"},
+            {x: "A", value: 100, name: "计算机科学", custom_field: "编程，数据库管理等"},
             {x: "B", value: 100, name: "企业经济学", custom_field: "企业管理，会计学等"},
-            {x: "C", value: 100, name: "关键技能", custom_field: "英语，统计学"},
+            {x: "C", value: 100, name: "关键技能", custom_field: "英语，统计学等"},
             {x:
-              ["A", "B"], value: 20, name: "计算机和经济学", custom_field: "IT项目管理，企业建模"},
+              ["A", "B"], value: 20, name: "计算机和经济学", custom_field: "IT项目管理，企业建模等"},
             {x: ["A", "C"], value: 20, name: "信息学和关键技能"},
             {x: ["B", "C"], value: 20, name: "经济学和关键技能"},
             {x: ["A", "B", "C"], value: 20, name: "经济信息", custom_field: "信息系统管理"}
