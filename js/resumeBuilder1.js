@@ -34,7 +34,7 @@ var bio = {
         "subject": {
             "de": [
             {x: "A", value: 100, name: "Informatik", custom_field: "Programmierung, Datenbankmanagementsystem"},
-            {x: "B", value: 100, name: "Betriebswirtschaftslehre", custom_field: "Geschäftsleitung(z.B. Rechnungswesen)"},
+            {x: "B", value: 100, name: "Betriebswirtschaftslehre", custom_field: "Betriebswirtschaftslehre(z.B. Rechnungswesen)"},
             {x: "C", value: 100, name: "Schlüsselqualifikationen", custom_field: "Englisch, Statistik"},
             {x:
               ["A", "B"], value: 20, name: "Informatik und Betriebswirtschaftslehre", custom_field: "IT-Projektmanagement, Unternehmensmodellierung"},
