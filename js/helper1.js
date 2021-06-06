@@ -132,7 +132,7 @@ function displayDe(){
 
     // change the html part with the corresponding translation of each school in education.schools
     for (school in education.schools){
-        $("#"+school+"sName").html(education.schools[school].name.de +' -- '+education.schools[school].degree.de);
+        $("#"+school+"sName").html(education.schools[school].name.de);// +' -- '+education.schools[school].degree.de);
         $("#"+school+"sMajor").html("<br>"+"Fach: " + education.schools[school].major.de);
         $("#"+school+"sLocation").html(education.schools[school].location.de[0]);
     }
@@ -165,7 +165,7 @@ function displayEn(){
     $("#t_title").html(en_title);
 
     for (school in education.schools){
-        $("#"+school+"sName").html(education.schools[school].name.en+ ' -- '+education.schools[school].degree.en);
+        $("#"+school+"sName").html(education.schools[school].name.en);//+ ' -- '+education.schools[school].degree.en);
         $("#"+school+"sMajor").html("<br>"+"Major: " + education.schools[school].major.en);
         $("#"+school+"sLocation").html(education.schools[school].location.en[0]);
     }
@@ -199,7 +199,7 @@ function displayZh(){
     $("#t_title").html(zh_title);
 
     for (school in education.schools){
-        $("#"+school+"sName").html(education.schools[school].name.zh +' -- '+education.schools[school].degree.zh);
+        $("#"+school+"sName").html(education.schools[school].name.zh);// +' -- '+education.schools[school].degree.zh);
         // here we have to manually add the "<br>"+"专业:" cause they are regarded as the content of html(text)
         $("#"+school+"sMajor").html("<br>"+"专业: " +education.schools[school].major.zh);
         $("#"+school+"sLocation").html(education.schools[school].location.zh[0]);
